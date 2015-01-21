@@ -1,0 +1,8 @@
+{
+    "require":{
+        "jpush/jpush": "v3.2.0"
+    },
+  "require":{
+    "propel/propel": "~2.0@dev"
+  }
+}

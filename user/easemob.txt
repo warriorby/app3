@@ -1,0 +1,1 @@
+a:4:{s:12:"access_token";s:63:"YWMtjr_bZpYgEeS0x2GnylNEXgAAAUv3gvhpWWytCJJ2vA6HVjBEP-0kIych_zw";s:10:"expires_in";i:5788800;s:11:"application";s:36:"46e428f0-7eac-11e4-ad88-c9c3d68aeabd";s:6:"status";i:200;}

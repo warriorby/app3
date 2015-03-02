@@ -11,7 +11,7 @@ if (isset($uid) && isset($task_name) && isset($role)) {
         "add_time" => $timestamp, "task_status" => 1,"role"=>$role]);
 
     $d2b->insert("task_log",["tid"=>$tid,"uid"=>$uid,"descr"=>"添加任务","updated"=>$timestamp,"role"=>$role]);
-    $return_arr = array("uid" => $uid, "tid" => $tid);
+    $return_arr = array("uid" => $uid, "tid" => $tid,"task_name"=>$task_name,"task_type"=>1);
     include("../include/return_data.php");
 } else {
     echo json_encode(0);

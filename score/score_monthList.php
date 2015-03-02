@@ -18,11 +18,13 @@ if(isset($uid) && isset($sub_id) && isset($dateTime)){
         foreach($rs_arr as $row){
             $score_id = $row['score_id'];
             $score = (int)$row['score'];
+            $total = (int)$row['total'];
             $exam_date = $row['exam_date'];
             $average = (float)$row['average'];
             $updated = date("Y-m-d",$row['updated']);
             $user_total+=$score;
-            $sub_arr[] = ["uid" => $uid,"score_id"=>$score_id, "sub_id" => $sub_id,"score"=>$score,"exam_date"=>$exam_date,"average"=>$average,"updated"=>$updated];
+            $sub_arr[] = ["uid" => $uid,"score_id"=>$score_id, "sub_id" => $sub_id,"score"=>$score,"total"=>$total,
+                "exam_date"=>$exam_date,"average"=>$average,"updated"=>$updated];
         }
         $user_aver = $user_total/$i;
         foreach($sub_arr as $row2){

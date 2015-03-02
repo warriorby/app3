@@ -1,5 +1,5 @@
 <?php
-require("../IM/im_init.php");
+require_once("../IM/im_init.php");
 include "../im/im-group.php";
 //grade
 if (empty($group_gid)) {

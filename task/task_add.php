@@ -4,13 +4,14 @@ require("../include/get_data.php");
 
 $name_type_id = $arr['name_type_id'];
 $plan_time = $arr['plan_time'];
+$plan_startTime = $arr['plan_startTime'];
 $is_remind = $arr['needRemind'];
 $photo_status = $arr['needPhoto'];
 $uid = $arr['uid'];
 $role = $arr['role'];
 if (isset($uid) && isset($name_type_id)) {
     $timestamp = time();
-    $tid = $d2b->insert("task_main", ["uid" => $uid, "name_type_id" => $name_type_id, "plan_time" => $plan_time, "needRemind" => $is_remind,
+    $tid = $d2b->insert("task_main", ["uid" => $uid, "name_type_id" => $name_type_id, "plan_time" => $plan_time, "plan_startTime"=>$plan_startTime,"needRemind" => $is_remind,
         "add_time" => $timestamp, "needPhoto" => $photo_status, "task_status" => 1,"role"=>$role]);
 
     $d2b->insert("task_picture",["tid"=>$tid,"uid"=>$uid,"updated"=>$timestamp,"role"=>$role]);

@@ -10,8 +10,9 @@ foreach($arr as $row){
     $uid = $row['uid'];
    // echo $uid;
 
-    $rs_arr = $d2b->select("user_profile",["real_name"],["uid"=>$uid]);
+    $rs_arr = $d2b->select("user_profile",["real_name","sex"],["uid"=>$uid]);
     $real_name = $rs_arr[0]['real_name'];
+    $sex = $rs_arr[0]['sex'];
 
     $rs_arr2 = $d2b->select("user_avatar",["avatar"],["uid"=>$uid]);
     if(count($rs_arr2)!=0){
@@ -22,6 +23,7 @@ foreach($arr as $row){
     $sub_arr["uid"]=$uid;
     $sub_arr["nickname"]=$real_name;
     $sub_arr["avatar"]=$avatar_name;
+    $sub_arr['sex']=$sex;
     $result_arr[]=$sub_arr;
 }
     $return_arr = $result_arr;

@@ -4,11 +4,10 @@ require "medoo.php";
 try{
     $d2b = new medoo([
         'database_type' => 'mysql',
-        'database_name' => 'demo2',
+        'database_name' => 'qingzi',
         'server' => 'localhost',
-        'username' => 'root',
-        'password' => '123456',
-
+        'username' => 'qingzi',
+        'password' => 'u9zNnmyeyY5uXYD8',
         'port' => 3306,
         'charset' => 'utf8',
         "option"=>[

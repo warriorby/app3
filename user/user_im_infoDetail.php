@@ -20,7 +20,9 @@ if(isset($uid)){
     $rs5_arr = $d2b->select("school_list",["school"],["zid"=>$zid]);
     $school = $rs5_arr[0]['school'];
 
-    $return_arr = ['uid'=>$uid,'city'=>$city,'zone'=>$zone,'school'=>$school,'grade'=>$gid,'className'=>$class_id];
+    $rs6_arr = $d2b->select("clazz_list",["cname"],["class_id"=>$class_id]);
+    $cname = $rs6_arr[0]['cname'];
+    $return_arr = ['uid'=>$uid,'city'=>$city,'zone'=>$zone,'school'=>$school,'grade'=>$gid,'className'=>$cname];
     include "../include/return_data.php";
 }else{
     echo json_encode(0);

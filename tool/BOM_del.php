@@ -5,7 +5,7 @@
    if (isset($_GET['dir'])){ //config the basedir
        $basedir=$_GET['dir'];
     }else{
-         $basedir = '.';
+         $basedir = '..';
    }
 
    $auto = 1;

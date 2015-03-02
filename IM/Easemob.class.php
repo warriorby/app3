@@ -322,7 +322,7 @@ class Easemob
      */
     public function delGroupsUser($group_id, $username)
     {
-        $url = $this->url . "chatgroups/" . $group_id . "/users" . $username;
+        $url = $this->url . "chatgroups/" . $group_id . "/users/" . $username;
         $access_token = $this->getToken();
         $header [] = 'Authorization: Bearer ' . $access_token;
         $result = $this->postCurl($url, '', $header, $type = "DELETE");

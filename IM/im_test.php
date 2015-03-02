@@ -29,7 +29,7 @@ $datas = $easeMob->createGroups($option);
 var_dump($datas);
 $groupid = $datas['data']['groupid'];
 echo $groupid;*/
-/*
-$datas = $easeMob->addGroupsUser("1418362427505887","11");
-var_dump($datas);*/
+
+$datas = $easeMob->delGroupsUser("1418362427505887","admin");
+var_dump($datas);
 

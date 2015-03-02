@@ -1,9 +1,19 @@
 <?php
-//millisecond
+//millisecond毫秒
 function getMilliSecond()
 {
     $time = explode(" ", microtime());
     $time = $time [1] . ($time [0] * 1000);
+    $time2 = explode(".", $time);
+    $times = $time2 [0];
+    return $times;
+}
+
+//微秒microsecond
+function getMicroSecond()
+{
+    $time = explode(" ", microtime());
+    $time = $time [1] . ($time [0] * 1000000);
     $time2 = explode(".", $time);
     $times = $time2 [0];
     return $times;
@@ -38,4 +48,18 @@ function checkEmptyString($emptys)
     if (empty($emptys)) return false;
     if ($emptys == '') return false;
     return true;
+}
+
+//descr
+function type_descr($count, $time,$descr,$descr2,$descr3,$descr4)
+{
+    if ($time > $count && $count >= ($time * 0.7)) {
+        return $descr2;
+    } elseif (($time * 0.7) > $count && $count >= ($time * 04)) {
+        return $descr3;
+    } elseif (($time * 0.4) > $count) {
+        return $descr4;
+    } else {
+        return $descr;
+    }
 }

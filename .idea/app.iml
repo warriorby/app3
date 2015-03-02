@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://D:/cygwin64/home/EI/swoole" />
+    <content url="file://$MODULE_DIR$/../PhalApi" />
+    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$/../app3" />
+    <content url="file://$MODULE_DIR$/../demo" />
+    <content url="file://$MODULE_DIR$/../laravel-master" />
+    <content url="file://$MODULE_DIR$/../phpq" />
+    <content url="file://$MODULE_DIR$/../thinkphp" />
+    <content url="file://$MODULE_DIR$/../yii2" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

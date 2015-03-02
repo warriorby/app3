@@ -22,15 +22,25 @@ if (isset($role)) {
             $sex_p = $arr['sex_p'];
             $uid_p = $arr['uid_p'];
             $realName_p = $arr['real_name_p'];
+            $d2b->update("user_main", ["channelid" =>null], ["uid" => $uid_p]);
+            $d2b->update("user_main", ["channelid" =>null], ["uid" => $uid_c]);
             $d2b->update("user_profile", [ "real_name" => $realName_p,"rel"=>$rel,"sex" => $sex_p, "birth" => $birth],["uid" => $uid_p]);
             $d2b->update("user_profile", [ "real_name" => $realName_c, "sex" => $sex_c, "birth" => $birth],["uid" => $uid_c]);
             $d2b->update("user_education",["pid"=>$pid,"zid"=>$zid,"cid"=>$cid,"sid"=>$sid,"gid"=>$gid,"class_id"=>$class_id],["uid"=>$uid_p]);
             $d2b->update("user_education",["pid"=>$pid,"zid"=>$zid,"cid"=>$cid,"sid"=>$sid,"gid"=>$gid,"class_id"=>$class_id],["uid"=>$uid_c]);
             $d2b->update("clazz_list",["stu_count[+]"=>1,"t_count"=>1],["class_id"=>$class_id]);
             include "parent_imReg.php";
-            $return_arr= ["uid_c" => $uid_c,"uid_p"=>$uid_p,"real_name_p"=>$realName_p,"real_name_c"=>$realName_c, "to_groupGid" => $to_groupGid, "to_groupClassId" => $to_groupClassId];
+            $return_arr= ["uid_c" => $uid_c,"uid_p"=>$uid_p,"real_name_p"=>$realName_p,"real_name_c"=>$realName_c, "sex_p"=>$sex_p,"sex_c"=>$sex_c,
+                "birth"=>$birth,"role"=>$role,"gid"=>$gid,"pid"=>$pid,"cid"=>$cid,"zid"=>$zid,"sid"=>$sid,"class_id"=>$class_id,
+                "to_groupGid" => $to_groupGid, "to_groupClassId" => $to_groupClassId];
             break;
         case 2:
+            $d2b->update("user_main", ["channelid" =>null], ["uid" => $uid_c]);
+            $rs_arr = $d2b->select("user_relation",["to_uid"],["uid_c"=>$uid_c]);
+            $to_uid = $rs_arr[0]['to_uid'];
+            if($uid_p != 0){
+                $d2b->update("user_main", ["channelid" =>null], ["uid" => $to_uid]);
+            }
             $d2b->update("user_profile", [ "real_name" => $realName_c, "sex" => $sex_c, "birth" => $birth],["uid" => $uid_c]);
             $d2b->update("user_education",["pid"=>$pid,"zid"=>$zid,"cid"=>$cid,"sid"=>$sid,"gid"=>$gid,"class_id"=>$class_id],["uid"=>$uid_c]);
             $d2b->update("clazz_list",["stu_count[+]"=>1,"t_count"=>1],["class_id"=>$class_id]);

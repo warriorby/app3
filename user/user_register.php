@@ -8,7 +8,7 @@ $login_type = $arr['login_type'];
 $channel_id = $arr['channelid'];
 
 if (isset($phone) && isset($pwd) && isset($login_type)) {
-    $datas = $d2b->select("user_main", ["phone"], ["phone" => $phone]);
+    $datas = $d2b->select("user_main", ["phone","role"], ["phone" => $phone]);
     if (count($datas) == 0) {
         $timestamp = time();
         $pwd = hash('sha256', $pwd);
@@ -62,7 +62,12 @@ if (isset($phone) && isset($pwd) && isset($login_type)) {
             echo json_encode(-102);
         }
     } else {
-        echo json_encode(-101);
+        $role = $datas[0]['role'];
+        if($role=1){
+            echo json_encode(-107);
+        }else{
+            echo json_encode(-108);
+        }
     }
 } else {
     echo json_encode(0);
